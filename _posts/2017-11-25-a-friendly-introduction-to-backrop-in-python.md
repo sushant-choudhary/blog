@@ -247,7 +247,9 @@ This raises the question: what if the expression is complicated such that the an
 ## Circuits with multiple neural gates
 
 Let's consider a gate that takes x, y, and z as inputs and outputs :
+$$
 f(x, y, z) = (x + y) *  z
+$$
 In fact, this is a essentially combination of two simple gates: an addition gate that takes in x and y, and a multiplication gate that takes in r and the output of the addition gate, say q. We can define this gate as follows:
 
 
