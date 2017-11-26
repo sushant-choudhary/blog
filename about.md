@@ -5,8 +5,9 @@ permalink: /about/
 feature-img: "assets/img/sample_feature_img_2.png"
 ---
 
-Type Theme is a free and open-source theme for [Jekyll](http://jekyllrb.com/), licensed under the MIT License.
+My name is Sushant Choudhary, and am employed as a quantitative analyst in the investment management industry. Given that, I'm probably well advised to make a disclaimer.
 
-Head over to the [theme's documentation](https://rohanchandra.github.io/project/type/) for much more information about Type Theme or to install this theme on your own Jekyll site.
+Disclaimer: Nothing on this blog constitutes investment advice.The views and opinions expressed in this article are those of the author and do not necessarily reflect the official policy or position of the author's employer.
 
-This file is an example of a page in Jekyll, that automatically shows up in the header navigation, you can delete or modify this file freely.
+You could also visit [my webpage](https://sushant-choudhary.github.io/) to learn (hardly anything) more about me.
+
