@@ -288,9 +288,7 @@ $$
 \frac{\partial f}{\partial q} = z
 $$
 
-$$
 ------------------------
-$$
 
 $$
 \frac{\partial f}{\partial z} = x+y
@@ -309,7 +307,7 @@ Here, q is just a forwardAddGate with inputs x and y, and f is a forwardMultiply
 
 For inputs to this circuit <b>x=-2, y=5, z=-4</b> it is straightforward to compute that $$ \frac{\partial f}{\partial x} = \frac{\partial f}{\partial q}.\frac{\partial q}{\partial x} = z.1 = -4*1 = -4 $$
 
-Let's see what's going on here. As such $\frac{\partial q}{\partial x}$ equals 1, i.e, increasing x increases the output of gate q. However, in the larger circuit (f) the output is increased by a reduction in the output of q, since $\frac{\partial f}{\partial q} = z = -4$ is a negative number. Hence, the goal, which is to maximize its output of the larger circuit f, is served by reducing q, for which x needs to be reduced.
+Let's see what's going on here. As such $$\frac{\partial q}{\partial x}$$ equals 1, i.e, increasing x increases the output of gate q. However, in the larger circuit (f) the output is increased by a reduction in the output of q, since $$ \frac{\partial f}{\partial q} = z = -4 $$ is a negative number. Hence, the goal, which is to maximize its output of the larger circuit f, is served by reducing q, for which x needs to be reduced.
 
 Hopefully, it is clear now that in this circuit, to calculate the gradient with respect to any input, we need to just calculate the gradient for the simpler gate which directly takes that input, with respect to that input; and then multiply the result obtained with the gradient of the circuit with respect to that gate (chain rule). 
 
