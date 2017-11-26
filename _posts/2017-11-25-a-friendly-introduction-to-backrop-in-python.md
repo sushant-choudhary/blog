@@ -273,41 +273,41 @@ Image above has been taken from http://karpathy.github.io/neuralnets/
 
 Optimizing this circuit would require us to compute the gradient for the entire circuit. Instead, we will compute the gradient for each of the component gates and then apply chain rule to get the gradient for the entire circuit.
 
-\begin{equation}q(x, y)= x + y \end{equation}
+$$ q(x, y)= x + y $$
 
-\begin{equation}
+$$
 \frac{\partial q}{\partial x} = 1
-\end{equation}
+$$
 
-\begin{equation}
+$$
 \frac{\partial q}{\partial y} = 1
-\end{equation}
+$$
 
 
-\begin{equation}
+$$
 \frac{\partial f}{\partial q} = z
-\end{equation}
+$$
 
-\begin{equation}
+$$
 ------------------------
-\end{equation}
+$$
 
-\begin{equation}
+$$
 \frac{\partial f}{\partial z} = x+y
-\end{equation}
+$$
 
 
-\begin{equation}
+$$
 \frac{\partial f}{\partial x} = \frac{\partial f}{\partial q}.\frac{\partial q}{\partial x} = z.1 = z
-\end{equation}
+$$
 
-\begin{equation}
+$$
 \frac{\partial f}{\partial y} = \frac{\partial f}{\partial q}.\frac{\partial q}{\partial y} = z.1 = z
-\end{equation}
+$$
 
 Here, q is just a forwardAddGate with inputs x and y, and f is a forwardMultiplyGate with inputs z and q. The last two equations above are key: when calculating the gradient of the entire circuit with respect to x (or y) we merely calculate the gradient of the gate q with respect to x (or y) and magnify it by a factor equal to the gradient of the circuit with respect to the output of gate q.
 
-For inputs to this circuit <b>x=-2, y=5, z=-4</b> it is straightforward to compute that $\frac{\partial f}{\partial x} = \frac{\partial f}{\partial q}.\frac{\partial q}{\partial x} = z.1 = -4*1 = -4$
+For inputs to this circuit <b>x=-2, y=5, z=-4</b> it is straightforward to compute that $$ \frac{\partial f}{\partial x} = \frac{\partial f}{\partial q}.\frac{\partial q}{\partial x} = z.1 = -4*1 = -4 $$
 
 Let's see what's going on here. As such $\frac{\partial q}{\partial x}$ equals 1, i.e, increasing x increases the output of gate q. However, in the larger circuit (f) the output is increased by a reduction in the output of q, since $\frac{\partial f}{\partial q} = z = -4$ is a negative number. Hence, the goal, which is to maximize its output of the larger circuit f, is served by reducing q, for which x needs to be reduced.
 
@@ -323,12 +323,12 @@ Image above has been taken from http://karpathy.github.io/neuralnets/
 
 Seeing as how we can use the chain rule, we may focus now on local gradients for some simple gates:
 
-When $f(x,y)=max(x,y)$ ; $\frac{\partial f}{\partial x} = logical(x>y)$ and $\frac{\partial f}{\partial y} = logical(y>x)$
+When $$f(x,y)=max(x,y)$$ ; $$\frac{\partial f}{\partial x} = logical(x>y)$$ and $$\frac{\partial f}{\partial y} = logical(y>x)$$
 
 
-When $f(x,y)= x + y $ ; $\frac{\partial f}{\partial x} = \frac{\partial f}{\partial y}  = 1 $
+When $$f(x,y)= x + y $$ ; $$\frac{\partial f}{\partial x} = \frac{\partial f}{\partial y}  = 1 $$
 
-When $f(x,y)= x * y $ ; $\frac{\partial f}{\partial x} = y $ and $\frac{\partial f}{\partial y} = x $
+When $$ f(x,y)= x * y $$ ; $$ \frac{\partial f}{\partial x} = y $$ and $$ \frac{\partial f}{\partial y} = x $$
 
 I just realized we haven't coded in a while. Oops. Now we will code all that we discussed and see how backpropagation helps us calculate the same gradient using the chain rule.
 
