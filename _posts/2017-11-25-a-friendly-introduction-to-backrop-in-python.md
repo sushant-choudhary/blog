@@ -251,7 +251,7 @@ $$
 f(x, y, z) = (x + y) *  z
 $$
 
-In fact, this is a essentially combination of two simple gates: an addition gate that takes in x and y, and a multiplication gate that takes in r and the output of the addition gate, say q. We can define this gate as follows:
+In fact, this is essentially a combination of two simple gates: an addition gate that takes in x and y, and a multiplication gate that takes in r and the output of the addition gate, say q. We can define this gate as follows:
 
 
 ```python
