@@ -2,6 +2,7 @@
 layout: post
 title: "A friendly Introduction to Backpropagation in Python"
 tags: [python, backpropagation, neuralnets]
+comments: true
 ---
 
 
